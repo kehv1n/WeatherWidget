@@ -42,11 +42,43 @@
   background-color: white;
   opacity: 0.5;
 }
+.weather .temp , .weather-extras {
+  display: inline-block;
+
+}
+.weather .weather-extras {
+  width: 60%;
+  position: relative;
+  bottom: 2.5em;
+}
 
 .weather h3 {
     font-size: 13em;
 }
 
+.weather-extras div {
+  display: inline-block;
+  width: 48%;
+  text-align:center;
+}
+
+#wind-speed,  #humidity {
+  display:inline;
+}
+
+.weather-extras h4, span {
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+.weather-extras .fa {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+/* .weather-extras span {
+  font-size:
+} */
 
 /* .left-aligned .locations, .weather {
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */

@@ -81,7 +81,6 @@ function injectById(id, content) {
     // make the # pretty
     content = Math.floor(content);
     content = content.toString() + "&deg;" +unit;
-
   }
 
   // if the content is of type number

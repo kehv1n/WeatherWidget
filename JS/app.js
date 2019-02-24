@@ -38,6 +38,8 @@ $(document).ready(() => {
         injectById("city-location", info.name);
         injectById("curr-date", todaysDate);
         injectById("curr-temp", info.main.temp);
+        injectById("wind-speed", info.wind.speed);
+        injectById("humidity", info.main.humidity);
 
 
       });
