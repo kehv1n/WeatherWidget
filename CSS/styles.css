@@ -1,0 +1,55 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+#bgCover {
+  /* background-color: red; */
+  background-size: cover;
+  background-position: center center;
+  /* should i be using vh/vw for getting 'full' bg imgs? */
+  height: 50em;
+  animation-direction: 2s;
+  /* display: flex; */
+
+}
+
+#bgCover > nav > a {
+  color: white;
+}
+
+
+
+
+#bgCover > .left-aligned {
+  margin-top: 15em;
+}
+
+
+
+.locations {
+  margin: 0 0 3em 5em;
+  /* margin-bottom: 3em; */
+  /* margin-left: 1em; */
+}
+
+.weather {
+  padding: 1em;
+  width: 80em;
+  border-radius: 1em;
+  background-color: white;
+  opacity: 0.5;
+}
+
+.weather h3 {
+    font-size: 13em;
+}
+
+
+/* .left-aligned .locations, .weather {
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+} */

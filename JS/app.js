@@ -11,7 +11,7 @@
 // &&  ES6 functions
 $(document).ready(() => {
 
-
+  const todaysDate =  new Date().toDateString();
 
 
   // get the location
@@ -25,15 +25,19 @@ $(document).ready(() => {
       console.log(info);
 
       // Determine which background to use according to temperature
-      // note: the api returns temp in Kelvin
+      // note: the api returns temp in Kelvin....yikes.
       const backgroundImageUrl = getBg(info.weather);
       backgroundImageUrl.then((url) => {
-        console.log('the url is below');
-
         // take this url and update the background img
-        // ** make sure to include author of pic ** 
-        console.log(url);
+        // ** make sure to include author of pic **
+        changeBackgroundCover(url);
 
+        // only when you change the background,
+        // do we do the injections (looks 'seamless-er')
+
+        injectById("city-location", info.name);
+        injectById("curr-date", todaysDate);
+        injectById("curr-temp", info.main.temp);
 
 
       });
