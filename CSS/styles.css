@@ -10,7 +10,8 @@
   background-size: cover;
   background-position: center center;
   /* should i be using vh/vw for getting 'full' bg imgs? */
-  height: 50em;
+  /* height: 50em; */
+  height: 100vh;
   animation-direction: 2s;
   /* display: flex; */
 
@@ -20,11 +21,15 @@
   color: white;
 }
 
+.locations > h1 {
+  display: inline-block;
+}
+
 
 
 
 #bgCover > .left-aligned {
-  margin-top: 15em;
+  margin-top: 7em;
 }
 
 
@@ -38,7 +43,8 @@
 .weather {
   padding: 1em;
   width: 80em;
-  border-radius: 1em;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
   background-color: white;
   opacity: 0.5;
 }
@@ -49,11 +55,12 @@
 .weather .weather-extras {
   width: 60%;
   position: relative;
-  bottom: 2.5em;
+  bottom: 5em;
 }
 
 .weather h3 {
-    font-size: 13em;
+    font-size: 9em;
+    cursor: pointer;
 }
 
 .weather-extras div {
@@ -66,6 +73,11 @@
   display:inline;
 }
 
+.temp #temp-desc {
+  text-align: center;
+  font-size: 1.2em;
+}
+
 .weather-extras h4, span {
   font-size: 2.5em;
   margin-bottom: 0;
@@ -76,6 +88,15 @@
   margin-right: 10px;
 }
 
+footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+footer p {
+  margin-top: 3em;
+  color: white;
+}
 /* .weather-extras span {
   font-size:
 } */

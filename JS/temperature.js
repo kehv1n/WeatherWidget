@@ -41,7 +41,18 @@ async function getBg(weather){
   const response = await fetch(api_str);
 
   let imgUrl = await response.json();
+
+  // credit the author here
+  let user = imgUrl.results[0].user;
+  user = user.first_name +' '+  user.last_name;
+  let creds = `Picture By: ${user}`;
+
+  // this is the direct url for the background
   imgUrl = imgUrl.results[0].links.download;
+
+  // credit the author of pic
+  injectById("author-creds", creds);
+
   // return the imageUrl as a promise
   return imgUrl;
 }
@@ -65,6 +76,10 @@ function changeTempUnits(unit, temp){
     temp = temp - 273.15;
   }
 
+  if (unit === "K"){
+    return temp;
+  }
+
   return temp;
 
 
@@ -72,15 +87,47 @@ function changeTempUnits(unit, temp){
 
 
 function injectById(id, content) {
-
+  const kTemp = content;
+  let element = document.getElementById(id);
+  let unit = "F";
   // first check to see if we're injecting the temp
   if (id === "curr-temp"){
     // if so, change the units to F cause 'Mericaa
-    unit = "F";
+
+
+    element.addEventListener('click', () => {
+      let temp;
+
+      if (unit === "F"){
+        // change to C
+        temp = Math.floor(changeTempUnits("C", kTemp));
+        console.log(`changed temp from ${kTemp} to ${temp}`);
+        unit = "C";
+        element.innerHTML = temp.toString() + "&deg;" +unit;
+      }
+
+      else if (unit == "C"){
+        // change to K
+        temp = Math.floor(kTemp);
+        console.log(`changed temp from ${kTemp} to ${temp}`);
+        unit = "K";
+        element.innerHTML = temp.toString() + "&deg;" +unit;
+      }
+      else if (unit == "K"){
+        // change to F
+        temp = Math.floor(changeTempUnits("F", kTemp));
+        console.log(`changed temp from ${kTemp} to ${temp}`);
+        unit = "F";
+        element.innerHTML = temp.toString() + "&deg;" +unit;
+      }
+
+    });
     content = changeTempUnits(unit, content);
     // make the # pretty
     content = Math.floor(content);
     content = content.toString() + "&deg;" +unit;
+
+
   }
 
   // if the content is of type number
@@ -90,6 +137,19 @@ function injectById(id, content) {
   }
   // inject it into the appropriate DOM element
 
-    document.getElementById(id).innerHTML = content;
+    element.innerHTML = content;
 
 }
+
+// / IIFE (Immediately Invokable Function Expression)
+
+// (() => {
+//
+//   document.getElementById('curr-temp').addEventListener('click', () => {
+//
+//
+//
+//
+//   });
+//
+// })();

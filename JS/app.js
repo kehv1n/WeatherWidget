@@ -35,11 +35,21 @@ $(document).ready(() => {
         // only when you change the background,
         // do we do the injections (looks 'seamless-er')
 
+        // All of these injections can be simplified by using a simple
+        // templating framework ie React, Angular, View, etc.
         injectById("city-location", info.name);
         injectById("curr-date", todaysDate);
         injectById("curr-temp", info.main.temp);
+        injectById('temp-desc', info.weather[0].description);
         injectById("wind-speed", info.wind.speed);
         injectById("humidity", info.main.humidity);
+
+
+        // Adding the icon is annoying cause it only works w <img> tags :(
+        let icon_src = `http://openweathermap.org/img/w/${info.weather[0].icon}.png`;
+        let icon = document.createElement('img');
+        icon.src = icon_src;
+        document.getElementsByClassName("locations")[0].appendChild(icon);
 
 
       });
