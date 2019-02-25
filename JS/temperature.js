@@ -62,6 +62,7 @@ async function getBg(weather){
 
 function changeBackgroundCover(link){
   document.getElementById("bgCover").style.backgroundImage = `url(${link})`;
+
 }
 
 // Must be inputted w Kelvin
@@ -140,16 +141,3 @@ function injectById(id, content) {
     element.innerHTML = content;
 
 }
-
-// / IIFE (Immediately Invokable Function Expression)
-
-// (() => {
-//
-//   document.getElementById('curr-temp').addEventListener('click', () => {
-//
-//
-//
-//
-//   });
-//
-// })();

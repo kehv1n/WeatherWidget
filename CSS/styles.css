@@ -55,7 +55,7 @@
 .weather .weather-extras {
   width: 60%;
   position: relative;
-  bottom: 5em;
+  bottom: 3em;
 }
 
 .weather h3 {
@@ -97,12 +97,15 @@ footer p {
   margin-top: 3em;
   color: white;
 }
-/* .weather-extras span {
-  font-size:
-} */
 
-/* .left-aligned .locations, .weather {
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: black;
-} */
+
+html, body
+
+height: 100%;   /* ges Hoehe der Seite -> weitere Hoehenangaben werden relativ hierzu ausgewertet */
+overflow: hidden;   /*  hide scrollbars */
+opacity: 1.0;
+-webkit-transition: background 1.5s linear;
+-moz-transition: background 1.5s linear;
+-o-transition: background 1.5s linear;
+-ms-transition: background 1.5s linear;
+transition: background 1.5s linear;
